@@ -19,37 +19,6 @@ import 'react-dates/initialize';
 
 const store = configureStore();
 
-store.dispatch(
-  addExpense({
-    description: "Water bill",
-    amount: 20000,
-    createdAt: 1000
-  })
-);
-
-store.dispatch(
-  addExpense({
-    description: "Gas bill",
-    note: "May",
-    amount: 30000,
-    createdAt: 2000
-  })
-);
-
-store.dispatch(
-  addExpense({
-    description: "Rent",
-    amount: 109500,
-    createdAt: 1500
-  })
-);
-
-const visibleExpenses = getVisibleExpenses(
-  store.getState().expenses,
-  store.getState().filters
-);
-// console.log(visibleExpenses);
-
 const jsx = (
   <Provider store={store}>
     <AppRoputer />
