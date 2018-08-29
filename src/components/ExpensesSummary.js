@@ -7,13 +7,10 @@ import numeral from 'numeral';
 export const ExpensesSummary = (props) => {
   const expensesCount = props.expenses.length;
   const expensesTotal = selectExpensesTotal(props.expenses);
+  const expenseWord = expensesCount === 1 ? 'expense' : 'expenses';
   return (
     <div>
-      {expensesCount === 1 ?
-        <p>Viewing 1 expense totalling {numeral(expensesTotal / 100).format('$0,0.00')}</p>
-        :
-        <p>Viewing {expensesCount} expenses totalling {numeral(expensesTotal / 100).format('$0,0.00')}</p>
-      }
+      <h1>Viewing {expensesCount} {expenseWord} totalling {numeral(expensesTotal / 100).format('$0,0.00')}</h1>
     </div>
   )
 }
